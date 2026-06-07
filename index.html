@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gilbert Batahi Lumbantobing | Software Engineer & Web Developer</title>
+  <meta name="description" content="Gilbert Batahi Lumbantobing - Computer Science Student, Web Developer, Backend Developer. Building modern web experiences with cutting-edge technology.">
+  <meta name="keywords" content="Gilbert Batahi Lumbantobing, Web Developer, Laravel Developer, Backend Developer, Portfolio, Software Engineer">
+  <meta name="author" content="Gilbert Batahi Lumbantobing">
+  <meta property="og:title" content="Gilbert Batahi Lumbantobing | Software Engineer">
+  <meta property="og:description" content="Building Modern Web Experiences">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="loader-bg-particles"></div>
+    <div class="loader-content">
+      <div class="loader-logo">
+        <svg class="loader-svg" viewBox="0 0 120 120" width="96" height="96">
+          <defs>
+            <linearGradient id="loaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00d4ff"/>
+              <stop offset="100%" stop-color="#7c3aed"/>
+            </linearGradient>
+            <linearGradient id="loaderGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#ec4899"/>
+            </linearGradient>
+          </defs>
+          <g class="loader-hex">
+            <polygon points="60,8 104,34 104,86 60,112 16,86 16,34" fill="none" stroke="url(#loaderGrad)" stroke-width="2">
+              <animate attributeName="stroke-dashoffset" from="0" to="-360" dur="6s" repeatCount="indefinite"/>
+              <animate attributeName="stroke-dasharray" values="0 360;180 180;360 0;180 180;0 360" dur="6s" repeatCount="indefinite"/>
+            </polygon>
+            <polygon points="60,16 96,38 96,82 60,104 24,82 24,38" fill="none" stroke="url(#loaderGrad2)" stroke-width="1" opacity=".5">
+              <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="20s" repeatCount="indefinite"/>
+            </polygon>
+            <text x="60" y="68" text-anchor="middle" font-size="34" font-weight="700" font-family="Space Grotesk" fill="url(#loaderGrad)">G</text>
+            <circle cx="60" cy="60" r="44" fill="none" stroke="rgba(124,58,237,.15)" stroke-width="1">
+              <animate attributeName="r" values="44;48;44" dur="3s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="1;.3;1" dur="3s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+          <g class="loader-orbits">
+            <circle cx="60" cy="12" r="3" fill="#00d4ff">
+              <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="-360 60 60" dur="4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="1;.3;1" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="60" cy="108" r="3" fill="#7c3aed">
+              <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="1;.3;1" dur="5s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+        </svg>
+      </div>
+      <h1 class="loader-name" id="loader-name"></h1>
+      <p class="loader-tagline" id="loader-tagline"></p>
+      <div class="loader-bar-wrapper">
+        <div class="loader-bar" id="loader-bar"></div>
+      </div>
+      <p class="loader-percent" id="loader-percent">0%</p>
+    </div>
+  </div>
+
+  <canvas id="three-bg"></canvas>
+
+  <div class="custom-cursor" id="custom-cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="nav-logo-icon">&lt;/&gt;</span>
+        Gilbert
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
+        <a href="#services" class="nav-link" data-i18n="nav.services">Services</a>
+
+        <a href="#blog" class="nav-link" data-i18n="nav.blog">Blog</a>
+      </div>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="lang-toggle" title="Switch Language">
+          <span id="lang-label">EN</span>
+        </button>
+        <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-floating-elements">
+      <div class="float-shape s1"></div>
+      <div class="float-shape s2"></div>
+      <div class="float-shape s3"></div>
+      <div class="float-shape s4"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="availability-badge" id="availability">
+        <span class="availability-dot"></span>
+        <span data-i18n="hero.available">Available for Freelance Projects</span>
+      </div>
+      <p class="hero-greeting" data-i18n="hero.greeting">Hi there, I'm</p>
+      <h1 class="hero-name">Gilbert Batahi <span class="text-gradient">Lumbantobing</span></h1>
+      <div class="hero-typed-wrapper">
+        <span data-i18n="hero.iam">I am</span>&nbsp;<span id="typed-text"></span>
+      </div>
+      <p class="hero-desc" data-i18n="hero.desc">Computer Science Student | Building modern web applications with clean code & cutting-edge technology</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-rocket"></i>
+          <span data-i18n="hero.viewProjects">View Projects</span>
+        </a>
+        <a href="#" class="btn btn-outline" id="download-cv">
+          <i class="fas fa-download"></i>
+          <span data-i18n="hero.downloadCV">Download CV</span>
+        </a>
+
+      </div>
+      <div class="hero-social">
+        <a href="https://github.com/gilbertlumbantobing" target="_blank" rel="noopener" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/gilbertlumbantobing" target="_blank" rel="noopener" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com/gilbertlumbantobing" target="_blank" rel="noopener" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:gilbert@example.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span data-i18n="hero.scroll">Scroll to explore</span>
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    </div>
+  </section>
+
+  <section class="branding section" id="branding">
+    <div class="container">
+      <div class="branding-grid">
+        <div class="branding-text" data-aos="fade-right">
+          <h2 class="section-label" data-i18n="branding.label">Value Proposition</h2>
+          <h3 class="branding-headline" data-i18n="branding.headline">I help businesses and institutions build modern web applications that are fast, secure, and user-friendly.</h3>
+          <p class="branding-desc" data-i18n="branding.desc">With a strong foundation in computer science and hands-on experience in full-stack development, I deliver digital solutions that drive results and create meaningful impact.</p>
+          <div class="branding-stats">
+            <div class="branding-stat">
+              <span class="branding-stat-num">6+</span>
+              <span class="branding-stat-label" data-i18n="branding.projects">Projects Built</span>
+            </div>
+            <div class="branding-stat">
+              <span class="branding-stat-num">8+</span>
+              <span class="branding-stat-label" data-i18n="branding.techs">Technologies</span>
+            </div>
+            <div class="branding-stat">
+              <span class="branding-stat-num">2+</span>
+              <span class="branding-stat-label" data-i18n="branding.years">Years Learning</span>
+            </div>
+          </div>
+        </div>
+        <div class="branding-visual" data-aos="fade-left">
+          <div class="branding-card-glass">
+            <div class="branding-code">
+              <div class="code-line"><span class="code-keyword">const</span> <span class="code-var">developer</span> = {</div>
+              <div class="code-line indent">  <span class="code-prop">name</span>: <span class="code-string">"Gilbert"</span>,</div>
+              <div class="code-line indent">  <span class="code-prop">role</span>: <span class="code-string">"Backend Dev"</span>,</div>
+              <div class="code-line indent">  <span class="code-prop">stack</span>: [<span class="code-string">"Laravel"</span>, <span class="code-string">"Node.js"</span>],</div>
+              <div class="code-line indent">  <span class="code-prop">passion</span>: <span class="code-string">"Clean Code"</span></div>
+              <div class="code-line">};</div>
+            </div>
+            <div class="branding-glowing-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="about.subtitle">Get To Know Me</span>
+        <h2 class="section-title" data-i18n="about.title">About Me</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-image-wrapper" data-aos="fade-right">
+          <div class="about-image-frame">
+            <img src="Pas Foto.png" alt="Gilbert Batahi Lumbantobing" class="about-image">
+            <div class="about-image-decoration"></div>
+          </div>
+          <div class="about-info-cards">
+            <div class="about-info-card">
+              <i class="fas fa-map-marker-alt"></i>
+              <span data-i18n="about.location">Indonesia</span>
+            </div>
+            <div class="about-info-card">
+              <i class="fas fa-graduation-cap"></i>
+              <span data-i18n="about.education">Computer Science</span>
+            </div>
+            <div class="about-info-card">
+              <i class="fas fa-code"></i>
+              <span data-i18n="about.status">Active Learner</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text" data-aos="fade-left">
+          <p class="about-desc" data-i18n="about.desc1">
+            I am a Computer Science student with a deep passion for web development and software engineering. My journey in tech started with curiosity about how websites work, and has evolved into a dedicated pursuit of mastering backend development, database design, and modern web architectures.
+          </p>
+          <p class="about-desc" data-i18n="about.desc2">
+            I specialize in building robust web applications using Laravel, Node.js, and modern JavaScript frameworks. Every project I work on is an opportunity to create something impactful and to push the boundaries of my technical abilities.
+          </p>
+          <div class="about-details">
+            <div class="about-detail">
+              <span class="detail-label" data-i18n="about.nameLabel">Name</span>
+              <span class="detail-value">Gilbert Batahi Lumbantobing</span>
+            </div>
+            <div class="about-detail">
+              <span class="detail-label" data-i18n="about.emailLabel">Email</span>
+              <span class="detail-value">gilbert@example.com</span>
+            </div>
+            <div class="about-detail">
+              <span class="detail-label" data-i18n="about.fromLabel">From</span>
+              <span class="detail-value" data-i18n="about.country">Indonesia</span>
+            </div>
+            <div class="about-detail">
+              <span class="detail-label" data-i18n="about.roleLabel">Role</span>
+              <span class="detail-value" data-i18n="about.role">Web & Backend Developer</span>
+            </div>
+          </div>
+          <div class="about-interests">
+            <span class="interest-tag">Laravel</span>
+            <span class="interest-tag">Node.js</span>
+            <span class="interest-tag">React</span>
+            <span class="interest-tag">MongoDB</span>
+            <span class="interest-tag">REST APIs</span>
+            <span class="interest-tag">Cloud Computing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="achievements section" id="achievements">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="achievements.subtitle">My Journey</span>
+        <h2 class="section-title" data-i18n="achievements.title">Achievements</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="achievements-grid">
+        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="0">
+          <div class="achievement-icon"><i class="fas fa-code"></i></div>
+          <span class="achievement-num" data-target="15">0</span>
+          <span class="achievement-label" data-i18n="achievements.projects">Projects Completed</span>
+        </div>
+        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="achievement-icon"><i class="fas fa-clock"></i></div>
+          <span class="achievement-num" data-target="1200">0</span>
+          <span class="achievement-label" data-i18n="achievements.hours">Coding Hours</span>
+        </div>
+        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="achievement-icon"><i class="fas fa-layer-group"></i></div>
+          <span class="achievement-num" data-target="10">0</span>
+          <span class="achievement-label" data-i18n="achievements.techs">Technologies Mastered</span>
+        </div>
+        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
+          <span class="achievement-num" data-target="5">0</span>
+          <span class="achievement-label" data-i18n="achievements.certs">Certificates Earned</span>
+        </div>
+        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="400">
+          <div class="achievement-icon"><i class="fab fa-github"></i></div>
+          <span class="achievement-num" data-target="200">0</span>
+          <span class="achievement-label" data-i18n="achievements.github">GitHub Contributions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tech-stack section" id="tech-stack">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="tech.subtitle">Technologies</span>
+        <h2 class="section-title" data-i18n="tech.title">Tech Stack</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="tech-categories">
+        <div class="tech-category" data-aos="fade-up">
+          <h3 class="tech-category-title"><i class="fas fa-paint-brush"></i> <span data-i18n="tech.frontend">Frontend</span></h3>
+          <div class="tech-grid">
+            <div class="tech-item" data-tech="HTML"><i class="fab fa-html5"></i><span>HTML5</span></div>
+            <div class="tech-item" data-tech="CSS"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+            <div class="tech-item" data-tech="JavaScript"><i class="fab fa-js"></i><span>JavaScript</span></div>
+            <div class="tech-item" data-tech="Bootstrap"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
+            <div class="tech-item" data-tech="Tailwind"><i class="fab fa-tailwind"></i><span>Tailwind</span></div>
+          </div>
+        </div>
+        <div class="tech-category" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="tech-category-title"><i class="fas fa-server"></i> <span data-i18n="tech.backend">Backend</span></h3>
+          <div class="tech-grid">
+            <div class="tech-item" data-tech="PHP"><i class="fab fa-php"></i><span>PHP</span></div>
+            <div class="tech-item" data-tech="Laravel"><i class="fab fa-laravel"></i><span>Laravel</span></div>
+            <div class="tech-item" data-tech="Node.js"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+            <div class="tech-item" data-tech="Express"><i class="fas fa-code"></i><span>Express.js</span></div>
+          </div>
+        </div>
+        <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="tech-category-title"><i class="fas fa-database"></i> <span data-i18n="tech.database">Database</span></h3>
+          <div class="tech-grid">
+            <div class="tech-item" data-tech="MySQL"><i class="fas fa-database"></i><span>MySQL</span></div>
+            <div class="tech-item" data-tech="MongoDB"><i class="fas fa-leaf"></i><span>MongoDB</span></div>
+          </div>
+        </div>
+        <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="tech-category-title"><i class="fas fa-tools"></i> <span data-i18n="tech.tools">Tools</span></h3>
+          <div class="tech-grid">
+            <div class="tech-item" data-tech="Git"><i class="fab fa-git-alt"></i><span>Git</span></div>
+            <div class="tech-item" data-tech="GitHub"><i class="fab fa-github"></i><span>GitHub</span></div>
+            <div class="tech-item" data-tech="VS Code"><i class="fas fa-code"></i><span>VS Code</span></div>
+            <div class="tech-item" data-tech="Postman"><i class="fas fa-network-wired"></i><span>Postman</span></div>
+            <div class="tech-item" data-tech="Figma"><i class="fab fa-figma"></i><span>Figma</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="services.subtitle">What I Offer</span>
+        <h2 class="section-title" data-i18n="services.title">Services</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-aos="flip-left">
+          <div class="service-icon"><i class="fas fa-globe"></i></div>
+          <h3 class="service-title" data-i18n="services.webDev">Web Development</h3>
+          <p class="service-desc" data-i18n="services.webDevDesc">Modern, responsive, and performant websites built with cutting-edge technologies.</p>
+        </div>
+        <div class="service-card" data-aos="flip-left" data-aos-delay="100">
+          <div class="service-icon"><i class="fas fa-server"></i></div>
+          <h3 class="service-title" data-i18n="services.backendDev">Backend Development</h3>
+          <p class="service-desc" data-i18n="services.backendDevDesc">Robust server-side applications with clean architecture and best practices.</p>
+        </div>
+        <div class="service-card" data-aos="flip-left" data-aos-delay="200">
+          <div class="service-icon"><i class="fas fa-plug"></i></div>
+          <h3 class="service-title" data-i18n="services.apiDev">REST API Development</h3>
+          <p class="service-desc" data-i18n="services.apiDevDesc">Scalable and secure APIs with comprehensive documentation and testing.</p>
+        </div>
+        <div class="service-card" data-aos="flip-left" data-aos-delay="300">
+          <div class="service-icon"><i class="fas fa-database"></i></div>
+          <h3 class="service-title" data-i18n="services.dbDesign">Database Design</h3>
+          <p class="service-desc" data-i18n="services.dbDesignDesc">Efficient database architecture with optimized queries and data modeling.</p>
+        </div>
+        <div class="service-card" data-aos="flip-left" data-aos-delay="400">
+          <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+          <h3 class="service-title" data-i18n="services.deploy">Deployment Services</h3>
+          <p class="service-desc" data-i18n="services.deployDesc">Seamless deployment to production with CI/CD pipelines and monitoring.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="projects.subtitle">My Work</span>
+        <h2 class="section-title" data-i18n="projects.title">Featured Projects</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="projects-filter" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all" data-i18n="projects.all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="api">API</button>
+        <button class="filter-btn" data-filter="system">System</button>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card" data-category="system" data-aos="fade-up">
+          <div class="project-thumb">
+            <img src="assets/projects/Laundry App.png" alt="Laundry App" class="project-img">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" title="Demo"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link" title="Documentation"><i class="fas fa-book"></i></a>
+                <a href="#" class="project-link video-play-btn" title="Video" data-video="assets/video/Laundry app.mp4"><i class="fas fa-video"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Laundry App</h3>
+            <p class="project-desc">Aplikasi manajemen laundry untuk mengelola pesanan, pelanggan, dan pembayaran secara efisien.</p>
+            <div class="project-techs">
+              <span>Laravel</span><span>MySQL</span><span>Bootstrap</span>
+            </div>
+</div>
+        </div>
+        <div class="project-card" data-category="system" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-thumb">
+            <img src="assets/projects/Web Inventaris Sekolah.jpg" alt="School Inventory System" class="project-img">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fas fa-book"></i></a>
+                <a href="#" class="project-link"><i class="fas fa-video"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Web Inventaris Sekolah</h3>
+            <p class="project-desc">Sistem manajemen inventaris barang sekolah berbasis web untuk pencatatan aset dan perlengkapan.</p>
+            <div class="project-techs">
+              <span>PHP</span><span>MySQL</span><span>Bootstrap</span>
+            </div>
+</div>
+        </div>
+        <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-thumb">
+            <img src="assets/projects/Web Pembelajaran Matematika.png" alt="Mathematics Learning Website" class="project-img">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fas fa-book"></i></a>
+                <a href="#" class="project-link"><i class="fas fa-video"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Web Pembelajaran Matematika</h3>
+            <p class="project-desc">Platform belajar matematika interaktif dengan materi, latihan soal, dan visualisasi konsep.</p>
+            <div class="project-techs">
+              <span>Laravel</span><span>MySQL</span><span>JavaScript</span>
+            </div>
+</div>
+        </div>
+        <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-thumb">
+            <img src="assets/projects/Web Pemilihan BEM.png" alt="Student Council Election System" class="project-img">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fas fa-book"></i></a>
+                <a href="#" class="project-link"><i class="fas fa-video"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Web Pemilihan BEM</h3>
+            <p class="project-desc">Sistem voting online untuk pemilihan ketua BEM dengan hasil real-time dan manajemen kandidat.</p>
+            <div class="project-techs">
+              <span>PHP</span><span>MySQL</span><span>Bootstrap</span>
+            </div>
+</div>
+        </div>
+        <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-thumb">
+            <img src="assets/projects/Affine Chiper Calculator.jpg" alt="Affine Cipher Calculator" class="project-img">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fas fa-book"></i></a>
+                <a href="#" class="project-link"><i class="fas fa-video"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Affine Cipher Calculator</h3>
+            <p class="project-desc">Kalkulator enkripsi dan dekripsi menggunakan algoritma Affine Cipher berbasis web.</p>
+            <div class="project-techs">
+              <span>PHP</span><span>JavaScript</span><span>HTML/CSS</span>
+            </div>
+</div>
+        </div>
+        <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="500">
+          <div class="project-thumb">
+            <img src="assets/projects/portofolio.png" alt="Portfolio Website" class="project-img">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-desc">Website portofolio pribadi premium dengan desain modern, interaktif 3D, dan multi-bahasa.</p>
+            <div class="project-techs">
+              <span>HTML/CSS</span><span>JavaScript</span><span>Three.js</span>
+            </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-studies section" id="case-studies">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="caseStudies.subtitle">Deep Dive</span>
+        <h2 class="section-title" data-i18n="caseStudies.title">Case Studies</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="case-study-card" data-aos="fade-up">
+        <div class="case-study-header">
+          <h3 data-i18n="caseStudies.study1Title">Affine Cipher Calculator</h3>
+          <span class="case-study-badge">Cryptography</span>
+        </div>
+        <div class="case-study-grid">
+          <div class="case-study-item">
+            <h4><i class="fas fa-exclamation-triangle"></i> <span data-i18n="caseStudies.problem">Problem</span></h4>
+            <p data-i18n="caseStudies.study1Problem">Need for a web-based tool that can encrypt and decrypt messages using the Affine Cipher algorithm for educational purposes.</p>
+          </div>
+          <div class="case-study-item">
+            <h4><i class="fas fa-lightbulb"></i> <span data-i18n="caseStudies.solution">Solution</span></h4>
+            <p data-i18n="caseStudies.study1Solution">Built an interactive web application with PHP backend that handles encryption/decryption logic and a clean JavaScript frontend for real-time input processing.</p>
+          </div>
+          <div class="case-study-item">
+            <h4><i class="fas fa-microchip"></i> <span data-i18n="caseStudies.tech">Technology</span></h4>
+            <p>PHP, JavaScript, HTML/CSS, Bootstrap</p>
+          </div>
+          <div class="case-study-item">
+            <h4><i class="fas fa-code-branch"></i> <span data-i18n="caseStudies.challenges">Challenges</span></h4>
+            <p data-i18n="caseStudies.study1Challenges">Implementing the affine cipher mathematical formula correctly and handling edge cases like non-alphabetic characters.</p>
+          </div>
+          <div class="case-study-item">
+            <h4><i class="fas fa-cogs"></i> <span data-i18n="caseStudies.implementation">Implementation</span></h4>
+            <p data-i18n="caseStudies.study1Impl">Built modular PHP functions for the affine cipher algorithm (ax + b mod 26), with a responsive UI for input and output display.</p>
+          </div>
+          <div class="case-study-item">
+            <h4><i class="fas fa-chart-line"></i> <span data-i18n="caseStudies.result">Result</span></h4>
+            <p data-i18n="caseStudies.study1Result">Successfully deployed educational tool used by students to learn and visualize affine cipher encryption concepts.</p>
+          </div>
+        </div>
+      </div>
+      <div class="case-study-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="case-study-header">
+          <h3 data-i18n="caseStudies.study2Title">Student Council Election System</h3>
+          <span class="case-study-badge">Web App</span>
+        </div>
+        <div class="case-study-grid">
+          <div class="case-study-item">
+            <h4><i class="fas fa-exclamation-triangle"></i> <span data-i18n="caseStudies.problem">Problem</span></h4>
+            <p data-i18n="caseStudies.study2Problem">School needed a digital platform for student council elections to replace paper ballots and manual vote counting.</p>
+          </div>
+          <div class="case-study-item">
+            <h4><i class="fas fa-lightbulb"></i> <span data-i18n="caseStudies.solution">Solution</span></h4>
+            <p data-i18n="caseStudies.study2Solution">Developed a secure web-based voting system with candidate profiles, voter authentication, and real-time result tabulation.</p>
+          </div>
+          <div class="case-study-item">
+            <h4><i class="fas fa-microchip"></i> <span data-i18n="caseStudies.tech">Technology</span></h4>
+            <p>PHP, MySQL, Bootstrap, JavaScript</p>
+          </div>
+          <div class="case-study-item">
+            <h4><i class="fas fa-code-branch"></i> <span data-i18n="caseStudies.challenges">Challenges</span></h4>
+            <p data-i18n="caseStudies.study2Challenges">Preventing duplicate voting, ensuring voter authentication, and displaying real-time results without revealing individual votes.</p>
+          </div>
+          <div class="case-study-item">
+            <h4><i class="fas fa-cogs"></i> <span data-i18n="caseStudies.implementation">Implementation</span></h4>
+            <p data-i18n="caseStudies.study2Impl">Built with PHP and MySQL for secure vote storage, Bootstrap for responsive UI, and AJAX for real-time result updates.</p>
+          </div>
+          <div class="case-study-item">
+            <h4><i class="fas fa-chart-line"></i> <span data-i18n="caseStudies.result">Result</span></h4>
+            <p data-i18n="caseStudies.study2Result">Successfully conducted school election with 95% voter turnout and eliminated manual counting errors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline section" id="timeline">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="timeline.subtitle">My Journey</span>
+        <h2 class="section-title" data-i18n="timeline.title">Career Timeline</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="timeline-container">
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2023</span>
+            <h3 data-i18n="timeline.year1Title">Started Learning Coding</h3>
+            <p data-i18n="timeline.year1Desc">Began my programming journey with HTML, CSS, and JavaScript. Built my first simple websites.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2024</span>
+            <h3 data-i18n="timeline.year2Title">Backend & Database Focus</h3>
+            <p data-i18n="timeline.year2Desc">Mastered PHP, Laravel, MySQL, and MongoDB. Started building dynamic web applications.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2025</span>
+            <h3 data-i18n="timeline.year3Title">Building Information Systems</h3>
+            <p data-i18n="timeline.year3Desc">Developed multiple information systems: e-commerce, attendance, laundry management, and more.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2026</span>
+            <h3 data-i18n="timeline.year4Title">Freelance & Personal Branding</h3>
+            <p data-i18n="timeline.year4Desc">Focusing on freelance projects, building personal brand, and expanding professional network.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="activity section" id="activity">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="activity.subtitle">Dashboard</span>
+        <h2 class="section-title" data-i18n="activity.title">Coding Activity</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="activity-grid">
+        <div class="activity-card" data-aos="fade-up">
+          <div class="activity-icon"><i class="fas fa-clock"></i></div>
+          <span class="activity-num">1,200+</span>
+          <span class="activity-label" data-i18n="activity.hours">Coding Hours</span>
+        </div>
+        <div class="activity-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="activity-icon"><i class="fas fa-rocket"></i></div>
+          <span class="activity-num">15+</span>
+          <span class="activity-label" data-i18n="activity.projects">Projects Completed</span>
+        </div>
+        <div class="activity-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="activity-icon"><i class="fas fa-book-open"></i></div>
+          <span class="activity-num">Always</span>
+          <span class="activity-label" data-i18n="activity.learning">Learning Progress</span>
+        </div>
+        <div class="activity-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="activity-icon"><i class="fas fa-bullseye"></i></div>
+          <span class="activity-num">Laravel</span>
+          <span class="activity-label" data-i18n="activity.focus">Current Focus</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="certificates section" id="certificates">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="certs.subtitle">Credentials</span>
+        <h2 class="section-title" data-i18n="certs.title">Certificates</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="certificates-grid">
+        <div class="cert-card" data-aos="zoom-in">
+          <div class="cert-img-wrapper">
+            <img src="assets/certificates/Simplilearn SkillUp.png" alt="Simplilearn SkillUp" class="cert-img">
+          </div>
+          <div class="cert-card-body">
+            <h3 class="cert-title" data-i18n="certs.cert1">Simplilearn SkillUp</h3>
+            <span class="cert-issuer">Simplilearn</span>
+          </div>
+        </div>
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="cert-img-wrapper">
+            <img src="assets/certificates/Aguna Course.png" alt="Aguna Course" class="cert-img">
+          </div>
+          <div class="cert-card-body">
+            <h3 class="cert-title" data-i18n="certs.cert2">Aguna Course</h3>
+            <span class="cert-issuer">Aguna</span>
+          </div>
+        </div>
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="cert-img-wrapper">
+            <img src="assets/certificates/Dicoding.png" alt="Dicoding" class="cert-img">
+          </div>
+          <div class="cert-card-body">
+            <h3 class="cert-title" data-i18n="certs.cert4">Dicoding</h3>
+            <span class="cert-issuer">Dicoding</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="testimonials.subtitle">Feedback</span>
+        <h2 class="section-title" data-i18n="testimonials.title">Testimonials</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="testimonials-slider" data-aos="fade-up">
+        <div class="testimonial-track" id="testimonial-track">
+          <div class="testimonial-card">
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="testimonial-text" data-i18n="testimonials.testimonial1">"Gilbert delivered an exceptional e-commerce platform. His technical expertise and attention to detail exceeded our expectations."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+              <div>
+                <span class="testimonial-name" data-i18n="testimonials.author1Name">Client Name</span>
+                <span class="testimonial-role" data-i18n="testimonials.author1Role">Business Owner</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="testimonial-text" data-i18n="testimonials.testimonial2">"Working with Gilbert on the attendance system was seamless. He understood our requirements perfectly and delivered on time."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+              <div>
+                <span class="testimonial-name" data-i18n="testimonials.author2Name">School Admin</span>
+                <span class="testimonial-role" data-i18n="testimonials.author2Role">Institution Administrator</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="testimonial-text" data-i18n="testimonials.testimonial3">"Highly professional and skilled. Gilbert's backend development work was clean, well-documented, and scalable."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+              <div>
+                <span class="testimonial-name" data-i18n="testimonials.author3Name">Project Manager</span>
+                <span class="testimonial-role" data-i18n="testimonials.author3Role">Tech Company</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-controls">
+          <button class="testimonial-btn prev" id="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+          <div class="testimonial-dots" id="testimonial-dots"></div>
+          <button class="testimonial-btn next" id="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog section" id="blog">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="blog.subtitle">Articles</span>
+        <h2 class="section-title" data-i18n="blog.title">Latest Blog Posts</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card" data-aos="fade-up" style="--card-accent: #ff2d20">
+          <div class="blog-card-top">
+            <div class="blog-card-icon"><i class="fab fa-laravel"></i></div>
+            <span class="blog-tag" style="--tag-color: #ff2d20">Laravel</span>
+          </div>
+          <div class="blog-content">
+            <span class="blog-date"><i class="far fa-calendar-alt"></i> 2025</span>
+            <h3 class="blog-title" data-i18n="blog.post1">Getting Started with Laravel</h3>
+            <p class="blog-excerpt" data-i18n="blog.post1Excerpt">A comprehensive guide to building modern web applications with Laravel framework.</p>
+            <a href="#" class="blog-readmore" data-i18n="blog.readMore">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="100" style="--card-accent: #6366f1">
+          <div class="blog-card-top">
+            <div class="blog-card-icon"><i class="fas fa-plug"></i></div>
+            <span class="blog-tag" style="--tag-color: #6366f1">API</span>
+          </div>
+          <div class="blog-content">
+            <span class="blog-date"><i class="far fa-calendar-alt"></i> 2025</span>
+            <h3 class="blog-title" data-i18n="blog.post2">Building REST APIs</h3>
+            <p class="blog-excerpt" data-i18n="blog.post2Excerpt">Best practices for designing and implementing scalable RESTful APIs.</p>
+            <a href="#" class="blog-readmore" data-i18n="blog.readMore">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="200" style="--card-accent: #47a248">
+          <div class="blog-card-top">
+            <div class="blog-card-icon"><i class="fas fa-database"></i></div>
+            <span class="blog-tag" style="--tag-color: #47a248">Database</span>
+          </div>
+          <div class="blog-content">
+            <span class="blog-date"><i class="far fa-calendar-alt"></i> 2024</span>
+            <h3 class="blog-title" data-i18n="blog.post3">MongoDB for Beginners</h3>
+            <p class="blog-excerpt" data-i18n="blog.post3Excerpt">Understanding NoSQL databases and getting started with MongoDB.</p>
+            <a href="#" class="blog-readmore" data-i18n="blog.readMore">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="300" style="--card-accent: #339933">
+          <div class="blog-card-top">
+            <div class="blog-card-icon"><i class="fab fa-node-js"></i></div>
+            <span class="blog-tag" style="--tag-color: #339933">Node.js</span>
+          </div>
+          <div class="blog-content">
+            <span class="blog-date"><i class="far fa-calendar-alt"></i> 2024</span>
+            <h3 class="blog-title" data-i18n="blog.post4">Node.js for Backend</h3>
+            <p class="blog-excerpt" data-i18n="blog.post4Excerpt">Why Node.js is a great choice for building scalable backend services.</p>
+            <a href="#" class="blog-readmore" data-i18n="blog.readMore">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="400" style="--card-accent: #8b5cf6">
+          <div class="blog-card-top">
+            <div class="blog-card-icon"><i class="fas fa-shield-alt"></i></div>
+            <span class="blog-tag" style="--tag-color: #8b5cf6">Security</span>
+          </div>
+          <div class="blog-content">
+            <span class="blog-date"><i class="far fa-calendar-alt"></i> 2024</span>
+            <h3 class="blog-title" data-i18n="blog.post5">Web Security Basics</h3>
+            <p class="blog-excerpt" data-i18n="blog.post5Excerpt">Essential security practices every web developer should know.</p>
+            <a href="#" class="blog-readmore" data-i18n="blog.readMore">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-intro section" id="video-intro">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="video.subtitle">Introduction</span>
+        <h2 class="section-title" data-i18n="video.title">Video Introduction</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="video-wrapper" data-aos="zoom-in">
+        <div class="video-placeholder" id="video-placeholder">
+          <div class="video-play-btn" id="video-play-btn">
+            <i class="fas fa-play"></i>
+          </div>
+          <div class="video-placeholder-text">
+            <p data-i18n="video.clickToPlay">Click to play introduction video</p>
+          </div>
+        </div>
+        <video id="intro-video" controls preload="none" poster="">
+          <source src="assets/video/Perkenalan.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="video-transcript" data-aos="fade-up" data-i18n="video.transcript">
+        Hello, I'm Gilbert Batahi Lumbantobing, a Computer Science student and Web Developer passionate about building modern, scalable web applications. With expertise in Laravel, Node.js, and database design, I help businesses and institutions create digital solutions that make a real impact.
+      </p>
+    </div>
+  </section>
+
+  <section class="download-center section" id="downloads">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" data-i18n="downloads.subtitle">Resources</span>
+        <h2 class="section-title" data-i18n="downloads.title">Download Center</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="downloads-grid">
+        <a href="assets/downloads/CV.pdf" class="download-card" data-aos="fade-up" download>
+          <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
+          <div>
+            <h3 data-i18n="downloads.cv">Curriculum Vitae</h3>
+            <span class="download-info" data-i18n="downloads.cvInfo">PDF - Updated 2026</span>
+          </div>
+          <span class="download-btn"><i class="fas fa-download"></i></span>
+        </a>
+        <a href="#" class="download-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="download-icon"><i class="fas fa-file-alt"></i></div>
+          <div>
+            <h3 data-i18n="downloads.portfolio">Portfolio PDF</h3>
+            <span class="download-info" data-i18n="downloads.portfolioInfo">PDF - Complete Portfolio</span>
+          </div>
+          <span class="download-btn"><i class="fas fa-download"></i></span>
+        </a>
+        <a href="#" class="download-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="download-icon"><i class="fas fa-certificate"></i></div>
+          <div>
+            <h3 data-i18n="downloads.certificates">Certificates Bundle</h3>
+            <span class="download-info" data-i18n="downloads.certsInfo">PDF - All Certificates</span>
+          </div>
+          <span class="download-btn"><i class="fas fa-download"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Gilbert <span class="text-gradient">Lumbantobing</span></h3>
+          <p data-i18n="footer.tagline">Building Modern Web Experiences</p>
+          <div class="footer-social">
+            <a href="https://github.com/gilbertlumbantobing" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/gilbertlumbantobing" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/gilbertlumbantobing" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#projects" data-i18n="nav.projects">Projects</a>
+          <a href="#services" data-i18n="nav.services">Services</a>
+          <a href="#blog" data-i18n="nav.blog">Blog</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </div>
+        <div class="footer-services">
+          <h4 data-i18n="footer.services">Services</h4>
+          <a href="#services" data-i18n="services.webDev">Web Development</a>
+          <a href="#services" data-i18n="services.backendDev">Backend Development</a>
+          <a href="#services" data-i18n="services.apiDev">REST API Development</a>
+          <a href="#services" data-i18n="services.deploy">Deployment</a>
+        </div>
+        <div class="footer-contact">
+          <h4 data-i18n="footer.contact">Contact</h4>
+          <a href="mailto:gilbert@example.com">gilbert@example.com</a>
+          <a href="https://wa.me/6281234567890">+62 812-3456-7890</a>
+          <span data-i18n="contact.location">Indonesia</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gilbert Batahi Lumbantobing. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <a href="#hero" class="back-to-top" id="back-to-top">
+          <i class="fas fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fab" id="fab">
+    <button class="fab-btn" id="fab-btn">
+      <i class="fas fa-plus"></i>
+    </button>
+    <div class="fab-menu" id="fab-menu">
+      <a href="#projects" class="fab-item" title="Projects"><i class="fas fa-code"></i></a>
+
+      <a href="#hero" class="fab-item" title="Top"><i class="fas fa-arrow-up"></i></a>
+    </div>
+  </div>
+
+  <div class="ai-chat" id="ai-chat">
+    <button class="ai-chat-toggle" id="ai-chat-toggle">
+      <i class="fas fa-robot"></i>
+      <span class="ai-chat-badge">1</span>
+    </button>
+    <div class="ai-chat-window" id="ai-chat-window">
+      <div class="ai-chat-header">
+        <div class="ai-chat-header-info">
+          <i class="fas fa-robot"></i>
+          <div>
+            <h4 data-i18n="ai.title">AI Assistant</h4>
+            <span class="ai-status" data-i18n="ai.status">Ask me anything about Gilbert</span>
+          </div>
+        </div>
+        <button class="ai-chat-close" id="ai-chat-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="ai-chat-messages" id="ai-chat-messages">
+        <div class="ai-message bot">
+          <div class="ai-avatar"><i class="fas fa-robot"></i></div>
+          <div class="ai-bubble">
+            <p data-i18n="ai.welcome">Hi! I'm Gilbert's AI assistant. Ask me about his skills, projects, experience, or anything else!</p>
+          </div>
+        </div>
+      </div>
+      <div class="ai-chat-input">
+        <input type="text" id="ai-input" placeholder="Type your message..." data-i18n-placeholder="ai.placeholder">
+        <button id="ai-send"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mouse-glow" id="mouse-glow"></div>
+
+  <div class="video-modal" id="videoModal">
+    <div class="video-modal-overlay"></div>
+    <div class="video-modal-content">
+      <button class="video-modal-close"><i class="fas fa-times"></i></button>
+      <video class="video-modal-player" id="videoPlayer" controls autoplay></video>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
